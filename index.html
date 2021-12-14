@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ambient Color Effect</title>
+    <style>
+        body{
+            padding: 0;
+            margin: 0;
+            background-color: black;
+        }
+        .wrapper{
+            width:201px;
+            height: 201px;
+            transform: translate(-50%,-50%);
+            left: 50%;
+            top:50%;
+            position: absolute;
+        }
+        .box{
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            transform-style: preserve-3d;
+            transform: rotateX(-30deg) rotateY(-30deg);
+            animation: anim 4s linear infinite;
+        }
+
+        @keyframes anim {
+            0%{
+                transform: rotateX(-30deg) rotateY(0deg);
+            }
+            100%{
+                transform: rotateX(-30deg) rotateY(-360deg);
+            }
+        }
+
+        .side{
+            background: linear-gradient(#222,red);
+        }
+        span{
+            width:100%;
+            height:100%;
+            position: absolute;
+        }
+
+        .side:nth-child(1){
+            transform: rotateY(0deg) translateZ(100px);
+        }
+        .side:nth-child(2){
+            transform: rotateY(90deg) translateZ(100px);
+        }
+
+        .side:nth-child(3){
+            transform: rotateY(180deg) translateZ(100px);
+        }
+
+        .side:nth-child(4){
+            transform: rotateY(-90deg) translateZ(100px);
+        }
+        .top{
+            background-color: rgb(26, 25, 25);
+            transform: rotateX(90deg) translateZ(100px);
+        }
+
+        .bottom{
+            background-color: red;
+            transform: rotateX(-90deg) translateZ(200px);
+            filter: blur(15px);
+            box-shadow: 0px 0px 120px rgb(255, 0, 0,0.2), 0px 0px 150px rgb(255, 0, 0,0.4), 0px 0px 200px rgb(255, 0, 0,0.6), 0px 0px 300px rgb(255, 0, 0,0.8);
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="box">
+            <span class="side"></span>
+            <span class="side"></span>
+            <span class="side"></span>
+            <span class="side"></span>
+            <span class="top"></span>
+            <span class="bottom"></span>
+        </div>
+    </div>
+</body>
+</html>
